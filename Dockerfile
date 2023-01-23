@@ -3,6 +3,8 @@ FROM alpine:3.15
 ARG TARGETARCH
 ARG VERSION=1.34.2
 
+RUN set -eux && sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+
 RUN \
   apk add --no-cache iptables iproute2 ca-certificates bash \
   && apk add --no-cache --virtual=.install-deps curl tar \
