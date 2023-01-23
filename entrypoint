@@ -21,8 +21,7 @@ up() {
     --netfilter-mode=${TAILSCALE_NETFILTER_MODE:-on} \
     --qr=${TAILSCALE_QR:-false} \
     --shields-up=${TAILSCALE_SHIELDS_UP:-false} \
-    --snat-subnet-routes=${TAILSCALE_SNAT_SUBNET_ROUTES:-true} \
-    --no-logs-no-support
+    --snat-subnet-routes=${TAILSCALE_SNAT_SUBNET_ROUTES:-true}
 }
 
 if [ ! -d /dev/net ]; then mkdir /dev/net; fi
@@ -33,4 +32,5 @@ up & tailscaled \
   -socket ${TAILSCALED_SOCKET:-"/var/run/tailscale/tailscaled.sock"} \
   -state ${TAILSCALED_STATE:-"/var/lib/tailscale/tailscaled.state"} \
   -tun ${TAILSCALED_TUN:-"tailscale0"} \
-  -verbose ${TAILSCALED_VERBOSE:-0}
+  -verbose ${TAILSCALED_VERBOSE:-0} \
+  -no-logs-no-support
