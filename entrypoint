@@ -21,7 +21,8 @@ up() {
     --netfilter-mode=${TAILSCALE_NETFILTER_MODE:-on} \
     --qr=${TAILSCALE_QR:-false} \
     --shields-up=${TAILSCALE_SHIELDS_UP:-false} \
-    --snat-subnet-routes=${TAILSCALE_SNAT_SUBNET_ROUTES:-true}
+    --snat-subnet-routes=${TAILSCALE_SNAT_SUBNET_ROUTES:-true} \
+    --no-logs-no-support
 }
 
 if [ ! -d /dev/net ]; then mkdir /dev/net; fi
